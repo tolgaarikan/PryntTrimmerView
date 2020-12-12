@@ -196,7 +196,6 @@ public protocol TrimmerViewDelegate: class {
         positionBar.frame = CGRect(x: 0, y: 0, width: 3, height: frame.height)
         positionBar.backgroundColor = positionBarColor
         positionBar.center = CGPoint(x: leftHandleView.frame.maxX, y: center.y)
-        positionBar.layer.cornerRadius = 1
         positionBar.translatesAutoresizingMaskIntoConstraints = false
         positionBar.isUserInteractionEnabled = false
         addSubview(positionBar)
