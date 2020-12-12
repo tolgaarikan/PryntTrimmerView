@@ -107,8 +107,8 @@ public protocol TrimmerViewDelegate: class {
     }
 
     private func setupTrimmerView() {
-        trimView.layer.borderWidth = 2.0
-        trimView.layer.cornerRadius = 2.0
+        trimView.layer.borderWidth = 6.0
+        trimView.layer.cornerRadius = 10.0
         trimView.translatesAutoresizingMaskIntoConstraints = false
         trimView.isUserInteractionEnabled = false
         addSubview(trimView)
@@ -124,7 +124,10 @@ public protocol TrimmerViewDelegate: class {
     private func setupHandleView() {
 
         leftHandleView.isUserInteractionEnabled = true
-        leftHandleView.layer.cornerRadius = 2.0
+        leftHandleView.layer.cornerRadius = 10.0
+        if #available(iOS 11.0, *) {
+            leftHandleView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        }
         leftHandleView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(leftHandleView)
 
@@ -142,7 +145,10 @@ public protocol TrimmerViewDelegate: class {
         leftHandleKnob.centerXAnchor.constraint(equalTo: leftHandleView.centerXAnchor).isActive = true
 
         rightHandleView.isUserInteractionEnabled = true
-        rightHandleView.layer.cornerRadius = 2.0
+        rightHandleView.layer.cornerRadius = 10.0
+        if #available(iOS 11.0, *) {
+            rightHandleView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
+        }
         rightHandleView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(rightHandleView)
 
@@ -197,7 +203,7 @@ public protocol TrimmerViewDelegate: class {
 
         positionBar.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         positionBar.widthAnchor.constraint(equalToConstant: 3).isActive = true
-        positionBar.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        positionBar.heightAnchor.constraint(equalTo: heightAnchor, constant: -12).isActive = true
         positionConstraint = positionBar.leftAnchor.constraint(equalTo: leftHandleView.rightAnchor, constant: 0)
         positionConstraint?.isActive = true
     }
