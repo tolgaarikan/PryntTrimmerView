@@ -169,7 +169,7 @@ public protocol TrimmerViewDelegate: class {
     private func setupMaskView() {
 
         leftMaskView.isUserInteractionEnabled = false
-        leftMaskView.backgroundColor = .white
+        leftMaskView.backgroundColor = .systemBackground
         leftMaskView.alpha = 0.7
         leftMaskView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(leftMaskView, belowSubview: leftHandleView)
@@ -180,7 +180,7 @@ public protocol TrimmerViewDelegate: class {
         leftMaskView.rightAnchor.constraint(equalTo: leftHandleView.centerXAnchor).isActive = true
 
         rightMaskView.isUserInteractionEnabled = false
-        rightMaskView.backgroundColor = .white
+        rightMaskView.backgroundColor = .systemBackground
         rightMaskView.alpha = 0.7
         rightMaskView.translatesAutoresizingMaskIntoConstraints = false
         insertSubview(rightMaskView, belowSubview: rightHandleView)
